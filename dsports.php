@@ -11,6 +11,14 @@
  */
 defined( 'ABSPATH' ) or die( '¡Sin trampas!' );
 
+//This function Calls  my styles css.
+
+function load_custom_wp_admin_style($hook) {
+      wp_enqueue_style( 'custom_wp_admin_css', plugins_url('css/shuffleStyles.css', __FILE__) );
+}
+add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );
+
+
 //This action calls a function, this function create a meta box in the Page.
 function custom_meta_box_markup($object)
 {
@@ -21,52 +29,9 @@ function custom_meta_box_markup($object)
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
+  <!--Bootsrap Sytle -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-
-  <!-- Bar -->
-    <style>
-        .slidecontainer {
-            width: 100%;
-        }
-
-        .slider {
-            -webkit-appearance: none;
-            width: 100%;
-            height: 15px;
-            border-radius: 5px;
-            background: #d3d3d3;
-            outline: none;
-            opacity: 0.7;
-            -webkit-transition: .2s;
-            transition: opacity .2s;
-        }
-
-        .slider:hover {
-            opacity: 1;
-        }
-
-        .slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            background: #4CAF50;
-            cursor: pointer;
-        }
-
-        .slider::-moz-range-thumb {
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            background: #4CAF50;
-            cursor: pointer;
-        }
-    </style>
-
-
+  <!--Shuffle Styles -->
 
   </head>
   <body>
@@ -86,7 +51,6 @@ function custom_meta_box_markup($object)
  var slider = document.getElementById("myRange");
  var output = document.getElementById("demo");
  output.innerHTML = slider.value;
-console.log('hola');
  slider.oninput = function() {
    output.innerHTML = this.value;
  }
