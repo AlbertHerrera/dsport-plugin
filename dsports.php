@@ -14,6 +14,6 @@ defined( 'ABSPATH' ) or die( '¡Sin trampas!' );
 
 add_filter( 'the_title', 'dsports_cambiar_titulo', 10, 2 );
 function dsports_cambiar_titulo( $title, $id ) {
-  $title = 'This is working ' . $title;
+  $title = 'This is working fine? ' . $title;
   return $title;
 }
