@@ -14,7 +14,8 @@ defined( 'ABSPATH' ) or die( '¡Sin trampas!' );
 //This function Calls  my styles css.
 
 function load_custom_wp_admin_style($hook) {
-      wp_enqueue_style( 'custom_wp_admin_css', plugins_url('css/shuffleStyles.css', __FILE__) );
+  wp_enqueue_script('newscript', plugins_url('js/shuffleScript.js', __FILE__));
+      wp_enqueue_style( 'shuffleStyle', plugins_url('css/shuffleStyles.css', __FILE__) );
 }
 add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );
 
@@ -34,7 +35,7 @@ function custom_meta_box_markup($object)
   <!--Shuffle Styles -->
 
   </head>
-  <body>
+  <body onload="valueSlider()">
     <form>
       <div class="row">
         <div class="col">
@@ -43,22 +44,15 @@ function custom_meta_box_markup($object)
       </div>
       <br>
       <h4>Shuffle Points League</h4>
-      <div class="""slidecontainer">
+      <div class="slidecontainer">
         <input type="range" min="800" max="2500" value="50" class="slider" id="myRange">
       <p>Sp: <span id="demo"></span></p>
     </div>
-    <script>
- var slider = document.getElementById("myRange");
- var output = document.getElementById("demo");
- output.innerHTML = slider.value;
- slider.oninput = function() {
-   output.innerHTML = this.value;
- }
- </script>
   <button type="button" class="btn btn-success">Crear</button>
     </form>
 
 </body>
+
 
 
   <br><?php
