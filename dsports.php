@@ -19,57 +19,78 @@ function custom_meta_box_markup($object)
 
   <html lang="en">
   <head>
-    <script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    // With JQuery
-    $('#ex1').slider({
-    	formatter: function(value) {
-    		return 'Current value: ' + value;
-    	}
-    });
 
-    // Without JQuery
-    var slider = new Slider('#ex1', {
-    	formatter: function(value) {
-    		return 'Current value: ' + value;
-    	}
-    });
-    </script>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap-slider.min.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <!-- Optional JavaScript -->
-   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-   <script src="js/bootstrap-slider.min.js"></script>
-   <script>
-   // Without JQuery
-  var slider = new Slider('#ex1', {
-  	formatter: function(value) {
-  		return 'Current value: ' + value;
-  	}
-});
-   </script>
+  <!-- Bar -->
+    <style>
+        .slidecontainer {
+            width: 100%;
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        .slider:hover {
+            opacity: 1;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+    </style>
+
+
 
   </head>
   <body>
-
-
     <form>
       <div class="row">
         <div class="col">
           <input type="text" class="form-control" placeholder="Nombre de la liga">
         </div>
       </div>
-
-      <p>Elige el rango de puntos de la liga</p>
-    <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14"/>
+      <br>
+      <h4>Shuffle Points League</h4>
+      <div class="""slidecontainer">
+        <input type="range" min="800" max="2500" value="50" class="slider" id="myRange">
+      <p>SH: <span id="demo"></span></p>
+    </div>
+    <script>
+ var slider = document.getElementById("myRange");
+ var output = document.getElementById("demo");
+ output.innerHTML = slider.value;
+console.log('hola');
+ slider.oninput = function() {
+   output.innerHTML = this.value;
+ }
+ </script>
     </form>
 
 </body>
