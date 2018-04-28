@@ -80,7 +80,7 @@ function custom_meta_box_markup($object)
       <h4>Shuffle Points League</h4>
       <div class="""slidecontainer">
         <input type="range" min="800" max="2500" value="50" class="slider" id="myRange">
-      <p>SH: <span id="demo"></span></p>
+      <p>Sp: <span id="demo"></span></p>
     </div>
     <script>
  var slider = document.getElementById("myRange");
@@ -91,6 +91,7 @@ console.log('hola');
    output.innerHTML = this.value;
  }
  </script>
+  <button type="button" class="btn btn-success">Crear</button>
     </form>
 
 </body>
