@@ -11,9 +11,15 @@
  */
 defined( 'ABSPATH' ) or die( '¡Sin trampas!' );
 
+//This action calls a function, this function create a meta box in the Page.
+function custom_meta_box_markup()
+{
 
-add_filter( 'the_title', 'dsports_cambiar_titulo', 10, 2 );
-function dsports_cambiar_titulo( $title, $id ) {
-  $title = 'This is working fine? ' . $title;
-  return $title;
 }
+
+function add_create_league_meta_box()
+{
+    add_meta_box("create-league-box", "Create League", "custom_meta_box_markup", "page", "side", "high", null);
+}
+
+add_action("add_meta_boxes", "add_create_league_meta_box");
