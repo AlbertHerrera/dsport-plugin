@@ -28,10 +28,45 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
+
 defined( 'ABSPATH' ) or die( 'You can not access this file,
 maybe you will not get bored playing some parchis ;)
-http://www.mundijuegos.com );
+http://www.mundijuegos.com' );
 
+class DsportsPlugin{
+  //methods
+  function activate(){
+    //generated a cpt
+    // flush rewrite rules
+
+  }
+  function deactivate(){
+    // flush rewrite rules
+
+  }
+  function unistall(){
+    //delete CPT
+    //delete all the plugin data from the DB.
+
+  }
+}
+if(class_exists( 'DsportsPlugin' )){
+
+  $dsportsPlugin = new DsportsPlugin( 'Dsports Plugin initialized!' );
+
+}
+// activation
+register_activation_hook(__FILE__, array($dsportsPlugin, 'activate');
+
+// deactivation
+register_deactivation_hook(__FILE__, array($dsportsPlugin, 'deactivate');
+
+// unistall
+
+function customFunction($arg){
+  echo $arg;
+}
+customFunction('This is my argument to echo.');
 //This function Calls  my styles css.
 
 function load_custom_wp_admin_style($hook) {
