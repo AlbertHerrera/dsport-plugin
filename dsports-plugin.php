@@ -41,7 +41,7 @@ class DsportsPlugin{
   //methods
   function activate(){
     //generated a cpt
-    // flush rewrite rules
+    // flush rewrite rules.
 
   }
   function deactivate(){
