@@ -34,6 +34,10 @@ maybe you will not get bored playing some parchis ;)
 http://www.mundijuegos.com' );
 
 class DsportsPlugin{
+  //construct
+  function __construct(){
+    add_action('init',array($this,'custom_post_type' ) );
+  }
   //methods
   function activate(){
     //generated a cpt
@@ -49,6 +53,9 @@ class DsportsPlugin{
     //delete all the plugin data from the DB.
 
   }
+  function custom_post_type(){
+    register_post_type('hook', ['public' => true, 'label' => 'Dsports News']);
+  }
 }
 if(class_exists( 'DsportsPlugin' )){
 
@@ -56,10 +63,10 @@ if(class_exists( 'DsportsPlugin' )){
 
 }
 // activation
-register_activation_hook(__FILE__, array($dsportsPlugin, 'activate');
+register_activation_hook(__FILE__, array( $dsportsPlugin, 'activate'));
 
 // deactivation
-register_deactivation_hook(__FILE__, array($dsportsPlugin, 'deactivate');
+register_deactivation_hook(__FILE__, array($dsportsPlugin, 'deactivate'));
 
 // unistall
 
