@@ -1,0 +1,17 @@
+{
+    "name": "albert/dsports-plugin",
+    "description": "Awesome dance sports plugin for wordpress",
+    "type": "project",
+    "license": "GLP",
+    "authors": [
+        {
+            "name": "Albert Herrera Castel",
+            "email": "castelherreraalbert@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+      "psr-4": {"Inc\\": "./inc"}
+    }
+}
