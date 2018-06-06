@@ -45,7 +45,7 @@ class CptCallbacks
       $input = get_option( $option_name );
       $value = $input[$_POST["edit_post"] ] [$name];
     }
-		echo '<input type="text" disabled="disabled" class="regular-text" id="' . $name . '" name="' . $option_name . '[' . $name . ']" value="'.$value.'" placeholder="' . $args['placeholder'] . '" required>';
+		echo '<input type="text"      class="regular-text" id="' . $name . '" name="' . $option_name . '[' . $name . ']" value="'.$value.'" placeholder="' . $args['placeholder'] . '" required>';
 	}
 	public function checkboxField( $args )
 	{
