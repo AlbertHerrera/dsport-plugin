@@ -21,5 +21,9 @@ class Activate
     if (! get_option( 'dsports_plugin_tax')){
       update_option( 'dsports_plugin_tax', $default );
     }
+
+    if (! get_option( 'dsports_plugin_lpt')){
+      update_option( 'dsports_plugin_lpt', $default );
+    }
   }
 }

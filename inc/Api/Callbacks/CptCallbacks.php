@@ -42,10 +42,11 @@ class CptCallbacks
 		$input = get_option( $option_name );
     $value = '';
     if (isset($_POST["edit_post"])){
+			var_dump($input);
       $input = get_option( $option_name );
       $value = $input[$_POST["edit_post"] ] [$name];
     }
-		echo '<input type="text"      class="regular-text" id="' . $name . '" name="' . $option_name . '[' . $name . ']" value="'.$value.'" placeholder="' . $args['placeholder'] . '" required>';
+		echo '<input type="text"  class="regular-text" id="' . $name . '" name="' . $option_name . '[' . $name . ']" value="'.$value.'" placeholder="' . $args['placeholder'] . '" required>';
 	}
 	public function checkboxField( $args )
 	{
@@ -56,7 +57,7 @@ class CptCallbacks
     $checked = false;
     if (isset($_POST["edit_post"])){
       $input = get_option( $option_name );
-      $checked = isset($checkbox[$_POST["edit_post"]][$name]) ?: false;
+      $checked = isset($checkbox[$_POST["edit_taxonomy"]][$name]) ?: false;
     }
 
 		echo '<div class="' . $classes . '"><input type="checkbox" id="' . $name . '" name="' . $option_name . '[' . $name . ']" value="1" class=""' . ( $checked ? 'checked' : '') . '><label for="' . $name . '"><div></div></label></div>';

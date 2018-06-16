@@ -42,6 +42,7 @@ if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
 
 //Initialize the core classes of the plugin
 if ( class_exists( 'Inc\\Init' ) ) {
+	global $wpdb;
 	Inc\Init::register_services();
 }
 

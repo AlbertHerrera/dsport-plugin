@@ -23,7 +23,8 @@ class BaseController{
         'templates_manager'=>'Activate Templates Manager',
         'login_manager'=>'Activate Login Manager',
         'membership_manager'=>'Activate membership Manager',
-        'chat_manager'=>'Activate Chat Manager'
+        'chat_manager'=>'Activate Chat Manager',
+        'lpt_manager' => 'Activate Leagues Post'
     );
   }
 }

@@ -63,6 +63,7 @@ class TaxonomyCallbacks
   }
   public function checkboxPostTypesField( $args )
   {
+    $output = '';
     $name = $args['label_for'];
     $classes = $args['class'];
     $option_name = $args['option_name'];
@@ -70,10 +71,16 @@ class TaxonomyCallbacks
     $checked = false;
     if (isset($_POST["edit_taxonomy"])){
       $input = get_option( $option_name );
-      $checked = isset($checkbox[$_POST["edit_taxonomy"]][$name]) ?: false;
     }
-
-    echo '<div class="' . $classes . '"><input type="checkbox" id="' . $name . '" name="' . $option_name . '[' . $name . ']" value="1" class=""' . ( $checked ? 'checked' : '') . '><label for="' . $name . '"><div></div></label></div>';
+    $post_type = get_post_types(array('show_ui' => true));
+    foreach ($post_type as $post) {
+      if (isset($_POST["edit_taxonomy"])){
+        $checked = isset($checkbox[$_POST["edit_taxonomy"]][$name][$post]) ?: false;
+      }
+      $output .= '<div class="' . $classes . ' ds-tax"><input type="checkbox" id="' . $post . '" name="' . $option_name . '[' . $name . '][' . $post . ']" value="1" class="" ' . ( $checked ? 'checked' : '') . '><label for="' . $post . '"><div></div></label> <strong>' . $post . '</strong></div>';
+    }
+    echo $output;
+  //echo '<div class="' . $classes . '"><input type="checkbox" id="' . $name . '" name="' . $option_name . '[' . $name . ']" value="1" class=""' . ( $checked ? 'checked' : '') . '><label for="' . $name . '"><div></div></label></div>';
   }
 
 }

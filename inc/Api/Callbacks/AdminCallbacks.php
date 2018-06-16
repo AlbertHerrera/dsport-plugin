@@ -40,6 +40,9 @@ class AdminCallbacks extends BaseController{
     return require_once( "$this->plugin_path/templates/store/chat.php" );
 
   }
+  public function adminLpt(){
+    return require_once( "$this->plugin_path/templates/store/leaguesManager.php" );
+  }
 
 
 

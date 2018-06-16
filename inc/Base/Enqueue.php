@@ -13,6 +13,8 @@ class Enqueue extends BaseController{
      add_action('admin_enqueue_scripts', array($this,'enqueue'));
  }
   function enqueue(){
+     wp_enqueue_script( 'media-upload' );
+     wp_enqueue_media();
      wp_enqueue_style( 'shuffleStyle', $this->plugin_url .'assets/css/shuffleStyles.min.css');
      wp_enqueue_script('newscript', $this->plugin_url .'assets/js/shuffleScript.min.js');
    }

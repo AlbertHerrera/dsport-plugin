@@ -23,7 +23,8 @@ final class Init
 			Base\ActivateMediaManagerController::class,
 			Base\ActivateMembershipManagerController::class,
 			Base\ActivateTemplatesManagerController::class,
-			Base\ActivateTestimonialManagerController::class
+			Base\ActivateTestimonialManagerController::class,
+			Base\LeaguesController::class,
 		);
 
 
