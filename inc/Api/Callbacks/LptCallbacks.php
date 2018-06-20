@@ -83,7 +83,9 @@ class LptCallbacks extends WP_Query
 
 	public function image( $args )
 	{
+		//wp_enqueue_media();
 		$name = $args['label_for'];
+		$classes = $args['class'];
 		$option_name = $args['option_name'];
 		$input = get_option( $option_name );
 		$value = '';
@@ -101,7 +103,7 @@ class LptCallbacks extends WP_Query
 		echo '
 		<p>
 		<label for="' .esc_attr( $this->get_field_id( 'image' ) ).'">'.esc_attr_e( 'Url Image:', 'awps' ).'</label>
-		<input class="widefat image-upload" id="' .esc_attr( $this->get_field_id( 'title' ) ). '" name="' .esc_attr( $this->get_field_name( 'title' ) ).'" type="text" value="' .esc_attr( $title ). '">
+		<input type="text" class="widefat ' . $classes . '" id="' . $name . '" name="' . $option_name . '[' . $name . ']" value="'.$value.'">
 		</p>
 		<button type ="button" class="button button-primary js-image-upload">Select Image</button>';
 

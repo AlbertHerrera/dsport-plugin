@@ -1,7 +1,7 @@
 <?php
 /**
 *
-*@package dsports-plugin
+*@package dsports
 */
 /*
  * Plugin Name: dsports-plugin

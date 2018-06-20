@@ -13,24 +13,29 @@ use \Inc\Api\Callbacks\ManagerCallbacks;
 *
 */
 class Dashboard extends Basecontroller{
+
   public $settings;
+
   public $callbacks;
+
   public $callbacks_mngr;
 
   public $pages = array();
-  //public $subpages = array();
 
  public function register(){
   $this->settings = new SettingsApi();
   $this->callbacks = new AdminCallbacks();
   $this->callbacks_mngr = new ManagerCallbacks();
+
   $this->setPages();
-//  $this->setSubpages();
+
   $this->setSettings();
+
   $this->setSections();
+
   $this->setFields();
 
-     $this->settings->addPages( $this->pages )->withSubPage()->register();
+  $this->settings->addPages( $this->pages )->withSubPage()->register();
 
   }
   public function setPages(){

@@ -26,9 +26,10 @@
         <?php
 
         $options = get_option( 'dsports_plugin_lpt') ?: array();
-        echo '<table class="ds-table"><tr><th>ID</th><th>Singular Name</th><th>Description</th><th class="text-center">Image</th><th class="text-center">Actions</th></tr>';
+        echo '<table class="ds-table"><tr><th>ID</th><th>Singular Name</th><th>Description</th><th class="text-center">Has Image?</th><th class="text-center">Actions</th></tr>';
 				foreach ($options as $option) {
-				      $image = isset($option['image']) ? "TRUE" : "FALSE";
+            var_dump($option);
+				      $image = empty($option['image']) ? "FALSE" : "TRUE";
 					    echo "<tr><td>{$option['league']}</td><td>{$option['singular_name']}</td><td>{$option['description']}</td><td class=\"text-center\">{$image}</td><td class=\"text-center\">";
               echo '<form method="post" action="" class="inline-block">';
               echo '<input type="hidden" name="edit_league" value="'.$option['league'].'">';

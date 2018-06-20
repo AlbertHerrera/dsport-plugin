@@ -24,6 +24,18 @@ window.addEventListener("load", function(){
 
   }
 });
+jQuery(function(){
+  jQuery("btnImage").on("click", function(){
+    console.log("hiii")
+    var images = wp.media({
+      title:"Upload Image",
+      multiple: false
+    }).open().on("selec", function(e){
+      var uploadedImages = images.state().get("selection");
+      console.log(uploadedImages.toJSON());
+    });
+  });
+});
 jQuery(document).ready(function ($) {
 	$(document).on('click', '.js-image-upload', function (e) {
 		e.preventDefault();
@@ -42,7 +54,9 @@ jQuery(document).ready(function ($) {
 
 		file_frame.on('select', function() {
 			var attachment = file_frame.state().get('selection').first().toJSON();
-			$button.siblings('.image-upload').val(attachment.url);
+      console.log(attachment.url);
+      document.getElementById("image").value = attachment.url;
+
 		});
 
 		file_frame.open();

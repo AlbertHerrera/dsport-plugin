@@ -48,7 +48,7 @@ class MediaWidget extends WP_Widget
 	public function form( $instance ) {
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'Custom Text', 'awps' );
     $image = ! empty( $instance['image'] ) ? $instance['image'] : '';
-
+		echo esc_attr( $this->get_field_id( 'title' ) );
     ?>
 		<p>
 		<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Title:', 'awps' ); ?></label>

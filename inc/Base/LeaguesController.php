@@ -141,7 +141,7 @@ class LeaguesController extends BaseController{
         'args' => array(
           'option_name' => 'dsports_plugin_lpt',
           'label_for' => 'image',
-          'class' => 'ui-toggle'
+          'class' => 'image-upload'
         )
       )
     );
@@ -153,36 +153,28 @@ class LeaguesController extends BaseController{
   }
   public function storePost($dsport){
       $options = get_option( 'dsports_plugin_lpt');
-      $dsport_content .= '
-      <head>
-                <style>
-                  .tableLeagues{
-                    width:100%;
-                    height:100%;
-                    background-color:#00d4e2;
-                  }
-                  .gogogo{
-                    text-align:center;
-                    color: #2b2b2b;
-                  }
+      $dsport_content .= "<div style='display: inline-flex;'>";
+      $i = 0;
+      foreach ($options as $option) {
+        $dsport_content .= "
 
-          </style>
-      </head>
-      <div class ="tableLeagues">
+        <div class='card' style='width: 30rem; margin-right:15rem;'>
+      <img class='card-img-top' src={$option['image']} alt='Card image cap' height=300 width=300>
+      <div class='card-body'>
+      <h5 class='card-title'>{$option['singular_name']}</h5>
+        <p class='card-text'>{$option['description']}</p>
+        <a href='#' class='btn btn-primary'>Go {$option['singular_name']} League</a>
+      </div>
+    </div>
 
-
-      <h1 class="gogogo">Dsports Leagues</h1>
-      <table>
-
-
-      ';
-
-      	foreach ($options as $option) {
-            $dsport_content .= "<tr><td>{$option['league']}</td><td>{$option['singular_name']}</td><td>{$option['description']}</td><td class=\"text-center\">{$image}</td><td class=\"text-center\">";
+        ";
+        $i++;
+        if($i==3){
+          $dsport_content .= "</div>";
         }
-      $dsport_content .= '
-      </table>
-      </div>';
+      }
+$dsport_content .= "</div>";
+
       $dsport_post = array(
          'ID'           => 231,
          'post_title'   => 'Dsports',
